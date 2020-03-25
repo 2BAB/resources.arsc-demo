@@ -1,0 +1,34 @@
+package me.xx2bab.polyfill.arsc1.bean;
+
+import me.xx2bab.polyfill.arsc1.util.BytesReader;
+
+import java.io.IOException;
+
+/**
+ * Created by luyao
+ * on 2018/12/24 16:53
+ */
+public class ResValue {
+
+    public int size;
+    public int res0;
+    public int dataType;
+    public int data;
+
+    public void parse(BytesReader reader) throws IOException {
+        this.size = reader.readUnsignedShort();
+        this.res0=reader.readUnsignedByte();
+        this.dataType = reader.readByte();
+        this.data = reader.readInt();
+    }
+
+    @Override
+    public String toString() {
+        return "ResValue{" +
+                "size=" + size +
+                ", res0=" + res0 +
+                ", dataType=" + dataType +
+                ", data=" + data +
+                '}';
+    }
+}
