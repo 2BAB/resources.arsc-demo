@@ -88,7 +88,6 @@ public class ResParser {
                 int length = 0;
                 int skipLength = 0;
                 if (stringPoolHeader.flags == ResStringPoolHeader.UTF8_FLAG) {
-                    int u16len = reader.read(position + stringOffsets.get(i), 1)[0];
                     int u8len = reader.read(position + stringOffsets.get(i), 1)[0];
                     length = u8len;
                     skipLength = 1; // 如果是 utf-8，则字符串以 0x00结尾
